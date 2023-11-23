@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tidyverse components
-nav_order: 4
+nav_order: 5
 ---
 
 # Let's wrangle and plot some data
