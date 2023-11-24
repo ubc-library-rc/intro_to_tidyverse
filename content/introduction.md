@@ -27,4 +27,6 @@ install.packages("tidyverse")
 library(tidyverse)
 ```
 
+![](images/library_tidyverse.png)
+
 After running the `library(tidyverse)` command, you will see some **core tidyverse packages** and some **conflicts** in your console. Today, we will focus on the core tidyverse packages.
