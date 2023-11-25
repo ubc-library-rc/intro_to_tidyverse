@@ -14,7 +14,7 @@ Today, we will talk about pivoting data, which is an important first step before
 
 We will work with the iris data
 
-```{r}
+``` r
 View(iris)
 ```
 
@@ -35,7 +35,7 @@ dplyr is a package that helpls with summarizing data. For the full list of what 
 
 Let's say we want to find some means and sample numbers in the iris.long dataset
 
-```{r}
+```r
 iris.summarised = iris.longer %>% 
   group_by(Species, metric_name) %>%
   summarise(
@@ -46,7 +46,7 @@ iris.summarised = iris.longer %>%
 
 We are going to keep using dplyr and use a cheat to add the summarized data back into the longer iris dataset.
 
-```{r}
+```r
 iris.full = full_join(iris.longer, iris.summarised)
 
 ```
@@ -57,7 +57,7 @@ How did this join work? Do you know of other joins?
 
 ggplot2 is is a plotting package that is highly customizable. For the full resources go here <https://ggplot2.tidyverse.org>
 
-```{r}
+```r
 ggplot(iris.full, aes(x=Species))+
   geom_boxplot(aes(y=metric_value, color=Species))+
   geom_point(aes(y=metric.mean, color=Species), cex=3, pch=8)+
@@ -83,7 +83,7 @@ There are many reasons you may want to manipulate characters in your dataset. So
 
 Let's say we want to change the names of the iris species in our dataset to include the full common name of the iris.
 
-```{r}
+```r
 iris$Species=str_replace(iris$Species, # to the Species column in the iris dataframe
             "virginica", # find the pattern "virginica"
             "Virginia blueflag") # replace the pattern "virginica" with "Virginia blueflag"
@@ -91,7 +91,7 @@ iris$Species=str_replace(iris$Species, # to the Species column in the iris dataf
 
 Repeat this activity with the *setosoa* iris in the iris dataset (answer below)
 
-```{r}
+```r
 iris$Species=str_replace(iris$Species, 
             "setosa", 
             "bristle-pointed iris")
@@ -99,7 +99,7 @@ iris$Species=str_replace(iris$Species,
 
 Let's do the same thing, but with the example that comes up when you type `?str_replace` in the R console.
 
-```{r}
+```r
 fruits <- c("one apple", "two pears", "three bananas")
 str_replace(fruits, # in fruits
             "[aeiou]", # find any of these letters
@@ -112,7 +112,7 @@ What differences in structure within the `str_replace` function do you notice be
 
 The changes we just made to the iris dataset names are cute, but they are too long. Let's use `str_sub` to extract the first 3 characters of the species name.
 
-```{r}
+```r
 iris$Species.Short = str_sub(iris$Species,
                              start=1,
                              end=3)
@@ -128,7 +128,7 @@ If we have an expectation that the 32 letter long sequences (yellow highlighted 
 
 ![](images/dna.png)
 
-```{r}
+```r
 ## make 74 letter DNA sequence vector
 seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
 
@@ -141,12 +141,12 @@ With one sequence you can just use the search function (CTRL+f or CMD+f) but pre
 
 For the sake of learning, let's see if we can merge these vectors without using `str_sub`
 
-```{r}
+```r
 sequences.that.match = intersect(seq74, seq32)
 ## no matches!! 
 ```
 
-```{r}
+```r
 seq74trim = str_sub(seq74,
                     start=27,
                     end=58)
@@ -154,7 +154,7 @@ seq74trim = str_sub(seq74,
 
 Running this will create a new vectorthat will be able to merge with the shorter sequences because they will be the same length, so you can have perfect macthes.
 
-```{r}
+```r
 sequences.that.match = intersect(seq74trim, seq32)
 ## 1 match now that the sequences are the same length!
 
