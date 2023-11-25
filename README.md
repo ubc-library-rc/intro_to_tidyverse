@@ -1,4 +1,4 @@
-# Introduction to the tidyverse package in R
+# Introduction to tidyverse
 ### UBC Library Research Commons
 
 :heavy_exclamation_mark: This workshop is in development and not yet complete. :heavy_exclamation_mark:    
