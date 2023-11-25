@@ -130,10 +130,17 @@ If we have an expectation that the 32 letter long sequences (yellow highlighted 
 
 ``` r
 ## make 74 letter DNA sequence vector
-seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
+seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
 
 ## can you tell which of these matches the 32 letter sequence?
-seq32 = c("actgtatctacgggtatgtaataagcttatga", "actgtatctacgggtatgtattaagcttatga", "actgtatctacgcgtatgtaataagcttatga")
+seq32 = c("actgtatctacgggtatgtaataagcttatga",
+"actgtatctacgggtatgtattaagcttatga",
+"actgtatctacgcgtatgtaataagcttatga")
 ```
 
 With one sequence you can just use the search function (CTRL+f or CMD+f) but pretend you had hundreds of these. You need to do this another way.
