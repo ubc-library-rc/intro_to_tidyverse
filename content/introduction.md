@@ -19,7 +19,8 @@ Tidyverse is very well maintained and has a very wide community of users. See th
 Like every other R package, you have to install tidyverse with `install.packages("tidyverse")` the first time you use it, and then only load it withl`ibrary(tidyverse)` in after that.
 
 Input
-```r
+
+``` r
 # install
 install.packages("tidyverse")
 
@@ -29,4 +30,4 @@ library(tidyverse)
 
 ![](images/library_tidyverse.png)
 
-After running the `library(tidyverse)` command, you will see some **core tidyverse packages** and some **conflicts** in your console. Today, we will focus on the core tidyverse packages.
+After running the `library(tidyverse)` command, you will see some **core tidyverse packages** and some **conflicts** in your console. Today, we will focus on some of the core tidyverse packages.

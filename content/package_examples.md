@@ -65,8 +65,103 @@ ggplot(iris.full, aes(x=Species))+
   scale_color_manual(values=c("#EE82EE", "#9400D3", "#483D8B"))+
   theme(axis.text = element_text(colour = "black", face = "bold", size = 12),
   legend.text = element_text(size = 8, face ="bold", colour ="black"),
-  legend.title = element_text(size = 14, colour = "black", face = "bold"))
+  legend.title = element_text(size = 14, colour = "black", face = "bold"))+
+  labs(x="Iris species", y="Metric Value (no units)", color="Iris species")
 ```
 
-Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. 
-Note down errors that you get and we can discuss them and how to troubleshoot errors as a group!
+![](images/iris_plot.png)
+
+Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them and how to troubleshoot errors as a group!
+
+## stringr
+
+stringr is a package that let's you easily manipulate character data. For the full resources go here [https://stringr.tidyverse.org](https://stringr.tidyverse.org/){.uri}
+
+There are many reasons you may want to manipulate characters in your dataset. Some of them are more on the data formatting site while others are to extract parts of your data for further manipulation or analysis. We will go over both now.
+
+##### Data formatting (string)
+
+Let's say we want to change the names of the iris species in our dataset to include the full common name of the iris.
+
+```{r}
+iris$Species=str_replace(iris$Species, # to the Species column in the iris dataframe
+            "virginica", # find the pattern "virginica"
+            "Virginia blueflag") # replace the pattern "virginica" with "Virginia blueflag"
+```
+
+Repeat this activity with the *setosoa* iris in the iris dataset (answer below)
+
+```{r}
+iris$Species=str_replace(iris$Species, 
+            "setosa", 
+            "bristle-pointed iris")
+```
+
+Let's do the same thing, but with the example that comes up when you type `?str_replace` in the R console.
+
+```{r}
+fruits <- c("one apple", "two pears", "three bananas")
+str_replace(fruits, # in fruits
+            "[aeiou]", # find any of these letters
+            "-") # replace the letters in the [] above with 
+```
+
+What differences in structure within the `str_replace` function do you notice between this example and the example we just ran through with the iris data? Hint, **iris** is a *dataframe* and **fruits** is a *vector.*
+
+##### Data extracting (string)
+
+The changes we just made to the iris dataset names are cute, but they are too long. Let's use `str_sub` to extract the first 3 characters of the species name.
+
+```{r}
+iris$Species.Short = str_sub(iris$Species,
+                             start=1,
+                             end=3)
+```
+
+Why might we want to do this? Lets say you have long strings of letters, like a DNA sequence. R only likes to match perfect matches to each other. Matching partial matches is hard.
+
+Let's pretend you have two sets of DNA sequences, each with over 500 sequences in them. Dataset 1, has sequences that are 74 letters (base pairs) long. Dataset 2, has sequences that are 32 base pairs long.
+
+You know what many of these sequences are actually the same, but R will not merge the 74 letter long sequences with the 32 letter long ones, because they are different lengths, so they can not be perfect matches, by definition.
+
+If we have an expectation that the 32 letter long sequences (yellow highlighted part) match the 74 letter long sequences (all the letters) starting at letter 27/74 up to 58/74 (see image below. Yellow is the expected overlap region), we can use `str_sub` to only keep that region of the 74 letter long sequence.
+
+![](images/dna.png)
+
+```{r}
+## make 74 letter DNA sequence vector
+seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct","atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
+
+## can you tell which of these matches the 32 letter sequence?
+seq32 = c("actgtatctacgggtatgtaataagcttatga", "actgtatctacgggtatgtattaagcttatga", "actgtatctacgcgtatgtaataagcttatga")
+
+```
+
+With one sequence you can just use the search function (CTRL+f or CMD+f) but pretend you had hundreds of these. You need to do this another way.
+
+For the sake of learning, let's see if we can merge these vectors without using `str_sub`
+
+```{r}
+sequences.that.match = intersect(seq74, seq32)
+## no matches!! 
+```
+
+```{r}
+seq74trim = str_sub(seq74,
+                    start=27,
+                    end=58)
+```
+
+Running this will create a new vectorthat will be able to merge with the shorter sequences because they will be the same length, so you can have perfect macthes.
+
+```{r}
+sequences.that.match = intersect(seq74trim, seq32)
+## 1 match now that the sequences are the same length!
+
+```
+
+The point of this example is to show why `str_sub` is different from `str_replace` . `str_sub` **counts** to extract information. `str_replace` looks for **perfect matches** and does something with those perfect matches.
+
+In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible.
+
+As an asside, R does have ways to allow mismatches when merging data, but we will not go over them today.
