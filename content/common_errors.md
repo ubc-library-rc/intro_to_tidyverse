@@ -4,7 +4,7 @@ title: Common Errors
 nav_order: 6
 ---
 
-For the last bit of this workshop, we will go over some common errors that happen when manipulating data. Let's make a dataframe to work with. Theses are the initial and final wet weights after 1 week of growth of different kelp species.
+For the last bit of this workshop, we will go over some common errors that happen when manipulating data. Let's make a dataframe to work with. This example is with intial and final wet weights after 1 week of growth of different kelp species.
 
 ```r
 ## parts of the dataframe
@@ -29,7 +29,7 @@ kelp.long = kelp %>%
                values_to = "weight_g")
 ```
 
-Let's say we want to string some operations together while we do this. Use that pipe!
+Let's say we want to string some operations together. Use that pipe!
 
 ```r
 kelp.long.sum = kelp %>% 
@@ -50,7 +50,7 @@ Oh no! This is not what we wanted at all! Look at all those NAs in the dataframe
 
 The NAs are a clue. Look at the data type of the kelp weights. They are characters! You can't take the mean of a character!
 
-Let's fix the variable type directly in out little pipe chain!
+Let's fix the variable type directly in our little pipe chain!
 
 ```r
 kelp.long.sum = kelp %>% 
@@ -62,10 +62,13 @@ kelp.long.sum = kelp %>%
     mean.weight = mean(as.numeric(weight_g)),
     n.weight = length(as.numeric(weight_g)),
     sum.weight = sum(as.numeric(weight_g)))
+
+# look at the data again
+View(kelp.long.sum)
   
 ```
 
-Here we have some data, but you can see that R does not like the missing data since it's no counting the mean and sum of the weights when the groups contain NA values.
+Here we have some data, but you can see that R does not like the missing data since it's not calculating the mean and sum of the weights when the groups contain NA values.
 
 Let's add more to the pipe sequence!
 
@@ -74,13 +77,14 @@ kelp.long.sum = kelp %>%
   pivot_longer(cols = c(3:4),
                names_to = "weight.time", 
                values_to = "weight_g") %>%
-  filter(!is.na(weight_g)) %>%
+  filter(!is.na(weight_g)) %>% 
   group_by(kelp.species, weight.time) %>%
   summarise(
     mean.weight = mean(as.numeric(weight_g)),
     n.weight = length(as.numeric(weight_g)),
     sum.weight = sum(as.numeric(weight_g)))
 
+View(kelp.long.sum)
 ```
 
 This looks better! We kept all our data and computed the summary statistics we wanted.

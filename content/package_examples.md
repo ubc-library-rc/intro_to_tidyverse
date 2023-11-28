@@ -18,15 +18,23 @@ We will work with the iris data
 View(iris)
 ```
 
-The iris data is currently in a "long" format, but we canmake it even longer
+The iris data is currently in a "wide" format. Let's change it into a "long" format.  
 
 ``` r
+# open the dataset to see what it looks like right now
+View(iris)
+
+# change to long format
 iris.longer = iris %>% pivot_longer(cols=c(1:4), 
                                     names_to = "metric_name",
                                     values_to = "metric_value")
+
+# open again to see what happened
+View(iris.long)
+# See how we went from 5 columns to 3?
 ```
 
-See how we went from 5 columns to 3? How did the data structure change?
+
 
 ## dplyr
 
@@ -69,15 +77,17 @@ ggplot(iris.full, aes(x=Species))+
 
 ![](images/iris_plot.png)
 
-Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them and how to troubleshoot errors as a group!
+Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them as a group!
 
 ## stringr and lubridate
 
 stringr is a package that let's you easily manipulate character data. For the full resources go here [https://stringr.tidyverse.org](https://stringr.tidyverse.org/){.uri}
 
-lubridate is meant to help R users format date and time data, which are actually a huge pain to work with otherwise. Today, we are not exploring that, but it even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go here [https://lubridate.tidyverse.org](https://lubridate.tidyverse.org/){.uri}
+lubridate is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go here [https://lubridate.tidyverse.org](https://lubridate.tidyverse.org/){.uri}
 
-There are many reasons you may want to manipulate characters in your dataset. Some of them are more on the data formatting site while others are to extract parts of your data for further manipulation or analysis. We will go over both now.
+Today, we are not exploring dates and times, but we are using the character vector manipulation part of lubridate. 
+
+There are many reasons you may want to manipulate characters in your dataset. Some of them are more on the data formatting side, while others are to extract parts of your data for further manipulation or analysis. We will go over both now.
 
 ##### Data formatting (string)
 
@@ -118,13 +128,13 @@ iris$Species.Short = str_sub(iris$Species,
                              end=3)
 ```
 
-Why might we want to do this? Lets say you have long strings of letters, like a DNA sequence. R only likes to match perfect matches to each other. Matching partial matches is hard.
+Why might we want to do this? Lets say you have long strings of letters, like a DNA sequence. R only likes to match perfect matches to each other. Matching partial matches is hard, but R does have ways of doing this.
 
-Let's pretend you have two sets of DNA sequences, each with over 500 sequences in them. Dataset 1, has sequences that are 74 letters (base pairs) long. Dataset 2, has sequences that are 32 base pairs long.
+Let's pretend you have two datasets of DNA sequences, each with DNA sequences in them. Dataset 1, has sequences that are 74 letters (base pairs) long. Dataset 2, has sequences that are 32 letters long.
 
-You know what many of these sequences are actually the same, but R will not merge the 74 letter long sequences with the 32 letter long ones, because they are different lengths, so they can not be perfect matches, by definition.
+You know that many of these sequences are actually from the same organism, but R will not merge the 74 letter long sequences with the 32 letter long ones, because they are different lengths, so they can not be perfect matches by definition.
 
-If we have an expectation that the 32 letter long sequences (yellow highlighted part) match the 74 letter long sequences (all the letters) starting at letter 27/74 up to 58/74 (see image below. Yellow is the expected overlap region), we can use `str_sub` to only keep that region of the 74 letter long sequence.
+If we have an expectation that the 32 letter long sequences (yellow highlighted part) match the 74 letter long sequences (all the letters) starting at letter 27/74 up to 58/74 (see image below ehere yellow is the overlap region), we can use `str_sub` to only keep the region of the 74 letter long sequence that should match the 32 letter long sequence.
 
 ![](images/dna.png)
 
@@ -145,12 +155,14 @@ seq32 = c("actgtatctacgggtatgtaataagcttatga",
 
 With one sequence you can just use the search function (CTRL+f or CMD+f) but pretend you had hundreds of these. You need to do this another way.
 
-For the sake of learning, let's see if we can merge these vectors without using `str_sub` . We are also using the package **lubridate** right now with the function `intersect`, which is part of **tidyverse.**
+For the sake of learning, let's see if we can merge these vectors without using `str_sub` to get the to be the same length. We are will use **lubridate**, with the function `intersect`.
 
 ``` r
 sequences.that.match = intersect(seq74, seq32)
 ## no matches!! 
 ```
+
+Now that we confirmed that the sequences need to be the same length to merge, let's format them with `str_sub`. 
 
 ``` r
 seq74trim = str_sub(seq74,
@@ -158,7 +170,7 @@ seq74trim = str_sub(seq74,
                     end=58)
 ```
 
-Running this will create a new vectorthat will be able to merge with the shorter sequences because they will be the same length, so you can have perfect macthes.
+Running `str_sub` created a new vector that will be able to merge with the shorter sequences because they will be the same length, so you can have perfect macthes.
 
 ``` r
 sequences.that.match = intersect(seq74trim, seq32)
@@ -167,12 +179,15 @@ sequences.that.match = intersect(seq74trim, seq32)
 
 The point of this example is to show why `str_sub` is different from `str_replace` . `str_sub` **counts** to extract information. `str_replace` looks for **perfect matches** and does something with those perfect matches.
 
-In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible.
+In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreads of sequences manually and look for matches that way.
 
-As an aside, R does have ways to allow mismatches when merging data, but we will not go over them today.
 
 ### What is a pipe? 
 
 You will notice in our very first example we used the `%>%` symbol. This is called a pipe operator and it is part of the **magrittr** package. It is used through the tidyverse to string many operations together.
 
 The library has another workshop, where we go over the pipe operator more in detail <https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html>
+
+R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe orperator instead of actually typing out %>% every time. 
+
+
