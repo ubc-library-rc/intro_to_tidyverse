@@ -6,7 +6,7 @@ nav_order: 1
 
 ## Note: this workshop is in development and not yet complete.
 
-Description...
+This workshop presents some of the major packages in the tidyverse package in R. 
 
 ## Learning objectives
 
