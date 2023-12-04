@@ -16,7 +16,10 @@ Indicate on screen with the annotate function in Zoom or in the chat.
 
 ## Learning objectives
 
-At the end of this workshop, you will be able to: 1. Know what tidyverse is. 2. Understand the uses of data manipulation packages. 3. Have an idea of where to start looking for answers when manipulating your data.
+At the end of this workshop, you will be able to: 
+1. Know what tidyverse is.
+2. Understand the uses of data manipulation packages.
+3. Have an idea of where to start looking for answers when manipulating your data.
 
 ## What are not not learning today?
 
