@@ -81,9 +81,9 @@ Spend the next 5 minutes removing and editing parts of this plot code to figure 
 
 ## stringr and lubridate
 
-stringr is a package that let's you easily manipulate character data. For the full resources go here [https://stringr.tidyverse.org](https://stringr.tidyverse.org/){.uri}
+stringr is a package that let's you easily manipulate character data. For the full resources go here [https://stringr.tidyverse.org](https://stringr.tidyverse.org/)
 
-lubridate is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go here [https://lubridate.tidyverse.org](https://lubridate.tidyverse.org/){.uri}
+lubridate is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go here [https://lubridate.tidyverse.org](https://lubridate.tidyverse.org/)
 
 Today, we are not exploring dates and times, but we are using the character vector manipulation part of lubridate. 
 
