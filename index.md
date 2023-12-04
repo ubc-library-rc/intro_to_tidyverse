@@ -6,19 +6,21 @@ nav_order: 1
 
 ## Note: this workshop is in development and not yet complete.
 
-This workshop presents some of the major packages in the tidyverse package in R. 
+This workshop presents some of the major packages in the tidyverse package in R.
+
+## How familiar are you with R and tidyverse?
+
+Indicate on screen with the annotate function in Zoom or in the chat.
+
+![](content/images/familiarity.png)
 
 ## Learning objectives
 
-At the end of this workshop, you will be able to: 
-1. Know what tidyverse is.
-2. Understand the uses of data manipulation packages.
-3. Have an idea of where to start looking for answers when manipulating your data.
+At the end of this workshop, you will be able to: 1. Know what tidyverse is. 2. Understand the uses of data manipulation packages. 3. Have an idea of where to start looking for answers when manipulating your data.
 
 ## What are not not learning today?
 
-It is impossible to go through all packages in detail. We are providing only a small snippet of what each package in the tidyverse can do and we are leaving some packages out of this workshop entirely. 
-
+It is impossible to go through all packages in detail. We are providing only a small snippet of what each package in the tidyverse can do and we are leaving some packages out of this workshop entirely.
 
 ## Schedule
 
@@ -30,4 +32,4 @@ It is impossible to go through all packages in detail. We are providing only a s
 
 ## Resources
 
-https://www.tidyverse.org/
+<https://www.tidyverse.org/>
