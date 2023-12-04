@@ -188,6 +188,6 @@ You will notice in our very first example we used the `%>%` symbol. This is call
 
 The library has another workshop, where we go over the pipe operator more in detail <https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html>
 
-R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe orperator instead of actually typing out %>% every time. 
+R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe orperator instead of actually typing out % > % every time. 
 
 
