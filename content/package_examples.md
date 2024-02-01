@@ -89,7 +89,8 @@ Today, we are not exploring dates and times, but we are using the character vect
 
 There are many reasons you may want to manipulate characters in your dataset. Some of them are more on the data formatting side, while others are to extract parts of your data for further manipulation or analysis. We will go over both now.
 
-##### Data formatting (string)
+## stringr
+### Data formatting (string)
 
 Let's say we want to change the names of the iris species in our dataset to include the full common name of the iris.
 
@@ -118,7 +119,7 @@ str_replace(fruits, # in fruits
 
 What differences in structure within the `str_replace` function do you notice between this example and the example we just ran through with the iris data? Hint, **iris** is a *dataframe* and **fruits** is a *vector.*
 
-##### Data extracting (string)
+### Data extracting (stringr)
 
 The changes we just made to the iris dataset names are cute, but they are too long. Let's use `str_sub` to extract the first 3 characters of the species name.
 
@@ -182,7 +183,7 @@ The point of this example is to show why `str_sub` is different from `str_replac
 In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreads of sequences manually and look for matches that way.
 
 
-### What is a pipe? 
+## What is a pipe? 
 
 You will notice in our very first example we used the `%>%` symbol. This is called a pipe operator and it is part of the **magrittr** package. It is used through the tidyverse to string many operations together.
 
