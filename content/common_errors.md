@@ -3,6 +3,7 @@ layout: default
 title: Common Errors
 nav_order: 6
 ---
+# Common Errors in Tidyverse
 
 For the last bit of this workshop, we will go over some common errors that happen when manipulating data. Let's make a dataframe to work with. This example is with intial and final wet weights after 1 week of growth of different kelp species.
 
@@ -43,10 +44,12 @@ kelp.long.sum = kelp %>%
     sum.weight = sum(weight_g))
   
 ```
+<div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
+<img src="images/char_pipe_error.png" alt="row-wise operations" width="70%"/>
+</div>
 
-![](images/char_pipe_error.png)
 
-Oh no! This is not what we wanted at all! Look at all those NAs in the dataframe and the error message. What might be going on here?
+Oh no! This is not what we wanted at all! Look at all those NAs in the dataframe (table above in image) and the error message (in the R console, below in image). What might be going on here?
 
 The NAs are a clue. Look at the data type of the kelp weights. They are characters! You can't take the mean of a character!
 
