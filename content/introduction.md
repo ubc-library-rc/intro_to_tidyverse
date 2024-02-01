@@ -3,8 +3,9 @@ layout: default
 title: Introduction
 nav_order: 4
 ---
+# Tidyverse Overview
 
-# What is tidyverse?
+## What is tidyverse?
 
 R packages allow you to use additional functions that are not pre-programmed as part of base R.
 
@@ -20,7 +21,7 @@ There are other UBC libraries workshops that might be of interest and are relate
 
 <https://ubc-library-rc.github.io/data-manipulation-dplyr/>
 
-# Installing and loading tidyverse
+## Installing and loading tidyverse
 
 Like every other R package, you have to install tidyverse with `install.packages("tidyverse")` the first time you use it, and then only load it with`library(tidyverse)` in after that.
 
