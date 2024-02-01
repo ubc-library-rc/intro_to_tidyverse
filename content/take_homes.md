@@ -4,7 +4,7 @@ title: Workshop Summary
 nav_order: 7
 ---
 
-### Take home messages
+# Take home messages
 
 1.  tidyverse is a package that helps you load many other packages (for data manipulation) into R at once
 
