@@ -75,7 +75,10 @@ ggplot(iris.full, aes(x=Species))+
   labs(x="Iris species", y="Metric Value (no units)", color="Iris species")
 ```
 
-![](images/iris_plot.png)
+<div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
+<img src="images/iris_plot.png" alt="row-wise operations" width="50%"/>
+</div>
+
 
 Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them as a group!
 
