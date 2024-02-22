@@ -27,12 +27,12 @@ It is impossible to go through all packages in detail. We are providing only a s
 
 ## Schedule
 
-| 0:00 \| Welcome and using Zoom\|
-| 0:05 \| Introduction \|
-| 0:15 \| Examples of packages in tidyverse\|
-| 0:45 \| Common errors\|
-| 1:00 \| Wrap-up and Discussion \|
+| 0:00 | Welcome and using Zoom|
+| 0:05 | Introduction |
+| 0:15 | Examples of packages in tidyverse|
+| 0:45 | Common errors|
+| 1:00 | Wrap-up and Discussion |
 
 ## Resources
 
-<https://www.tidyverse.org/>
+<https://www.tidyverse.org/>{:target="_blank"}

@@ -23,7 +23,7 @@ There are other UBC libraries workshops that might be of interest and are relate
 
 ## Installing and loading tidyverse
 
-Like every other R package, you have to install tidyverse with `install.packages("tidyverse")` the first time you use it, and then only load it with`library(tidyverse)` in after that.
+Like every other R package, you have to install tidyverse with `install.packages("tidyverse")` the first time you use it, and then only load it with `library(tidyverse)` after that.
 
 Input
 

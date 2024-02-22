@@ -92,6 +92,6 @@ View(kelp.long.sum)
 
 This looks better! We kept all our data and computed the summary statistics we wanted.
 
-Fixing one issues and building up until the next problem arises is the best way to build code.
+Fixing one issue and building up until the next problem arises is the best way to build code.
 
 In tidyverse (and R in general), one of the most **common reasons to get errors is that the data are the wrong type**. Here, the weights were characters but had to be numeric.

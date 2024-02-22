@@ -103,7 +103,7 @@ iris$Species=str_replace(iris$Species, # to the Species column in the iris dataf
             "Virginia blueflag") # replace the pattern "virginica" with "Virginia blueflag"
 ```
 
-Repeat this activity with the *setosoa* iris in the iris dataset (answer below)
+Repeat this activity with the *setosa* iris in the iris dataset (answer below)
 
 ``` r
 iris$Species=str_replace(iris$Species, 
@@ -181,11 +181,11 @@ sequences.that.match = intersect(seq74trim, seq32)
 ## 1 match now that the sequences are the same length!
 ```
 
-The point of this example is to show why `str_sub` is different from `str_replace`:
-<p>`str_sub` **counts** to extract information.</p>
-<p>`str_replace` looks for **perfect matches** and does something with those perfect matches.</p>
+The point of this example is to show why `str_sub` is different from `str_replace`:  
+`str_sub` **counts** to extract information.  
+`str_replace` looks for **perfect matches** and does something with those perfect matches.
 
-In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreads of sequences manually and look for matches that way.
+In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreds of sequences manually and look for matches that way.
 
 
 ## What is a pipe? 
@@ -194,6 +194,6 @@ You will notice in our very first example we used the `%>%` symbol. This is call
 
 The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
 
-R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe orperator instead of actually typing out % > % every time. 
+R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
 
 
