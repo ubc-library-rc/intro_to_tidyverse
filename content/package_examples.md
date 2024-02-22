@@ -76,7 +76,7 @@ ggplot(iris.full, aes(x=Species))+
 ```
 
 <div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
-<img src="images/iris_plot.png" alt="row-wise operations" width="60%"/>
+<img src="images/iris_plot.png" alt="row-wise operations" width="80%"/>
 </div>
 
 
