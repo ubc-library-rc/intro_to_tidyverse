@@ -84,9 +84,9 @@ Spend the next 5 minutes removing and editing parts of this plot code to figure 
 
 ## stringr and lubridate
 
-stringr is a package that let's you easily manipulate character data. For the full resources go to <a href="https://stringr.tidyverse.org" target="_blank">their website</a>. 
+<strong>stringr</strong> is a package that let's you easily manipulate character data. For the full resources go to <a href="https://stringr.tidyverse.org" target="_blank">their website</a>. 
 
-lubridate is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go to <a href="https://lubridate.tidyverse.org" target="_blank">their website</a>. 
+<strong>lubridate</strong> is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go to <a href="https://lubridate.tidyverse.org" target="_blank">their website</a>. 
 
 Today, we are not exploring dates and times, but we are using the character vector manipulation part of lubridate. 
 
@@ -182,8 +182,8 @@ sequences.that.match = intersect(seq74trim, seq32)
 ```
 
 The point of this example is to show why `str_sub` is different from `str_replace`:
-`str_sub` **counts** to extract information.
-`str_replace` looks for **perfect matches** and does something with those perfect matches.
+<p>`str_sub` **counts** to extract information.</p>
+<p>`str_replace` looks for **perfect matches** and does something with those perfect matches.</p>
 
 In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreads of sequences manually and look for matches that way.
 
