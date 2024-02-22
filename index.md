@@ -21,7 +21,7 @@ At the end of this workshop, you will be able to:
 2. Understand the uses of data manipulation packages.
 3. Have an idea of where to start looking for answers when manipulating your data.
 
-## What are not not learning today?
+## What are we not learning today?
 
 It is impossible to go through all packages in detail. We are providing only a small snippet of what each package in the tidyverse can do and we are leaving some packages out of this workshop entirely.
 
