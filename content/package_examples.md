@@ -8,7 +8,7 @@ nav_order: 5
 
 ## tidyr
 
-tidyr is a package that allows easy data manipulation. To see the full options and a tidyr cheat sheet, go to <https://tidyr.tidyverse.org>
+tidyr is a package that allows easy data manipulation. To see the full options and a tidyr cheat sheet, go to <a href="https://tidyr.tidyverse.org" target="_blank">their website</a>.
 
 Today, we will talk about pivoting data, which is an important first step before analyzing and plotting data sets.
 
@@ -38,7 +38,7 @@ View(iris.long)
 
 ## dplyr
 
-dplyr is a package that helpls with summarizing data. For the full list of what that means go here <https://dplyr.tidyverse.org>
+dplyr is a package that helpls with summarizing data. For the full list of what that means go to <a href="https://dplyr.tidyverse.org" target="_blank">their website</a>. 
 
 Let's say we want to find some means and sample numbers in the iris.long dataset
 
@@ -61,7 +61,7 @@ How did this join work? Do you know of other joins?
 
 ## ggplot2
 
-ggplot2 is is a plotting package that is highly customizable. For the full resources go here <https://ggplot2.tidyverse.org>
+ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>. 
 
 ``` r
 ggplot(iris.full, aes(x=Species))+
@@ -84,9 +84,9 @@ Spend the next 5 minutes removing and editing parts of this plot code to figure 
 
 ## stringr and lubridate
 
-stringr is a package that let's you easily manipulate character data. For the full resources go here [https://stringr.tidyverse.org](https://stringr.tidyverse.org/)
+stringr is a package that let's you easily manipulate character data. For the full resources go to <a href="https://stringr.tidyverse.org" target="_blank">their website</a>. 
 
-lubridate is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go here [https://lubridate.tidyverse.org](https://lubridate.tidyverse.org/)
+lubridate is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go to <a href="https://lubridate.tidyverse.org" target="_blank">their website</a>. 
 
 Today, we are not exploring dates and times, but we are using the character vector manipulation part of lubridate. 
 
@@ -181,7 +181,9 @@ sequences.that.match = intersect(seq74trim, seq32)
 ## 1 match now that the sequences are the same length!
 ```
 
-The point of this example is to show why `str_sub` is different from `str_replace` . `str_sub` **counts** to extract information. `str_replace` looks for **perfect matches** and does something with those perfect matches.
+The point of this example is to show why `str_sub` is different from `str_replace`:
+`str_sub` **counts** to extract information.
+`str_replace` looks for **perfect matches** and does something with those perfect matches.
 
 In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreads of sequences manually and look for matches that way.
 
@@ -190,7 +192,7 @@ In situations where you have different string of letters (like in many DNA seque
 
 You will notice in our very first example we used the `%>%` symbol. This is called a pipe operator and it is part of the **magrittr** package. It is used through the tidyverse to string many operations together.
 
-The library has another workshop, where we go over the pipe operator more in detail <https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html>
+The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
 
 R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe orperator instead of actually typing out % > % every time. 
 
