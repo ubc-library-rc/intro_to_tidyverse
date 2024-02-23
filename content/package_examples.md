@@ -61,7 +61,8 @@ How did this join work? Do you know of other joins?
 
 ## ggplot2
 
-ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>. 
+ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>.  
+You can also refer to the <a href="https://ubc-library-rc.github.io/R-viz/" target="_blank"> library workshop about ggplot2</a>.
 
 ``` r
 ggplot(iris.full, aes(x=Species))+
