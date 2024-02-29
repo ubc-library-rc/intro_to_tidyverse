@@ -1,7 +1,6 @@
 # Introduction to tidyverse
 ### UBC Library Research Commons
-
-:heavy_exclamation_mark: This workshop is in development and not yet complete. :heavy_exclamation_mark:   
+ 
 This R workshop is designed to give an overview of the different packages within the tidyverse package.
 
 Link to workshop: https://ubc-library-rc.github.io/intro_to_tidyverse/
