@@ -66,6 +66,8 @@ The UBC libraries has a <a href="https://ubc-library-rc.github.io/relational-dat
 ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>.  
 You can also refer to the <a href="https://ubc-library-rc.github.io/R-viz/" target="_blank"> library workshop about ggplot2</a>.
 
+<strong>Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them as a group!</strong>
+
 ``` r
 ggplot(iris.full, aes(x=Species))+
   geom_boxplot(aes(y=metric_value, color=Species))+
@@ -83,7 +85,7 @@ ggplot(iris.full, aes(x=Species))+
 </div>
 
 
-Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them as a group!
+
 
 ## stringr and lubridate
 
@@ -108,11 +110,14 @@ iris$Species=str_replace(iris$Species, # to the Species column in the iris dataf
 
 Repeat this activity with the *setosa* iris in the iris dataset (answer below)
 
+<details><summary><strong> Answer </strong></summary>
 ``` r
 iris$Species=str_replace(iris$Species, 
             "setosa", 
             "bristle-pointed iris")
 ```
+</details>
+
 
 Let's do the same thing, but with the example that comes up when you type `?str_replace` in the R console.
 
