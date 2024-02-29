@@ -45,7 +45,7 @@ kelp.long.sum = kelp %>%
   
 ```
 <div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
-<img src="images/char_pipe_error.png" alt="row-wise operations" width="70%"/>
+<img src="images/char_error_versions.jpg" alt="row-wise operations" width="70%"/>
 </div>
 
 
