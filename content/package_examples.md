@@ -123,7 +123,7 @@ Let's do the same thing, but with the example that comes up when you type `?str_
 
 ``` r
 fruits <- c("one apple", "two pears", "three bananas")
-str_replace(fruits, # in fruits
+fruits2=str_replace(fruits, # in fruits
             "[aeiou]", # find any of these letters
             "-") # replace the letters in the [] above with 
 ```
