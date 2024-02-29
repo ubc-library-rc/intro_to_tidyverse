@@ -59,6 +59,8 @@ iris.full = full_join(iris.longer, iris.summarised)
 
 How did this join work? Do you know of other joins?
 
+The UBC libraries has a <a href="https://ubc-library-rc.github.io/relational-data-r/" target="_blank">workshop about joins</a>.
+
 ## ggplot2
 
 ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>.  
