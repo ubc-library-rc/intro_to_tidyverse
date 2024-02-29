@@ -120,11 +120,9 @@ iris$Species=str_replace(iris$Species, # to the Species column in the iris dataf
 Repeat this activity with the *setosa* iris in the iris dataset (answer below)
 
 <details><summary><strong> Answer </strong></summary>
-``` r
 iris$Species=str_replace(iris$Species, 
             "setosa", 
             "bristle-pointed iris")
-```
 </details>
 
 
