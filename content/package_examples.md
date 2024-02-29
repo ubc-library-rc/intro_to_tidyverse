@@ -6,6 +6,15 @@ nav_order: 5
 
 # Let's wrangle and plot some data
 
+## magtittr
+
+You will notice the `%>%` symbol throughout the workshop. This is called a pipe operator and it is part of the <a href="https://magrittr.tidyverse.org/" target="_blank">**magrittr** package</a>. It is used through the tidyverse to string many operations together.
+
+The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
+
+R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
+
+
 ## tidyr
 
 tidyr is a package that allows easy data manipulation. To see the full options and a tidyr cheat sheet, go to <a href="https://tidyr.tidyverse.org" target="_blank">their website</a>.
@@ -196,12 +205,6 @@ The point of this example is to show why `str_sub` is different from `str_replac
 In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreds of sequences manually and look for matches that way.
 
 
-## What is a pipe? 
 
-You will notice in our very first example we used the `%>%` symbol. This is called a pipe operator and it is part of the **magrittr** package. It is used through the tidyverse to string many operations together.
-
-The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
-
-R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
 
 
