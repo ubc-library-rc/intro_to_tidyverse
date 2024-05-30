@@ -39,7 +39,7 @@ iris.longer = iris %>% pivot_longer(cols=c(1:4),
                                     values_to = "metric_value")
 
 # open again to see what happened
-View(iris.long)
+View(iris.longer)
 # See how we went from 5 columns to 3?
 ```
 

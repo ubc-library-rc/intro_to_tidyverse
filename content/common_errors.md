@@ -33,15 +33,18 @@ kelp.long = kelp %>%
 Let's say we want to string some operations together. Use that pipe!
 
 ```r
+## the library plyr is a good partner to the library tidyverse
+# install.packaged("plyr")
+library(plyr)
+
 kelp.long.sum = kelp %>% 
-  pivot_longer(cols = c(3:4),
-               names_to = "weight.time", 
-               values_to = "weight_g") %>%
-  group_by(kelp.species, weight.time) %>%
-  summarise(
+  pivot_longer(cols = c(3:4),names_to = "weight.time", values_to = "weight_g") %>%
+  ddply(c("kelp.species", "weight.time"),  ## ddply is part of plyr
+        summarise,
     mean.weight = mean(weight_g),
     n.weight = length(weight_g),
     sum.weight = sum(weight_g))
+
   
 ```
 <div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
@@ -57,41 +60,33 @@ Let's fix the variable type directly in our little pipe chain!
 
 ```r
 kelp.long.sum = kelp %>% 
-  pivot_longer(cols = c(3:4),
-               names_to = "weight.time", 
-               values_to = "weight_g") %>%
-  group_by(kelp.species, weight.time) %>%
-  summarise(
-    mean.weight = mean(as.numeric(weight_g)),
-    n.weight = length(as.numeric(weight_g)),
-    sum.weight = sum(as.numeric(weight_g)))
-
-# look at the data again
-View(kelp.long.sum)
+  pivot_longer(cols = c(3:4),names_to = "weight.time", values_to = "weight_g") %>%
+  filter(!is.na(weight_g))%>% ## removes missing values (NAs)
+  ddply(c("kelp.species", "weight.time"), ## groups by kelp species and the measurement group
+        summarise,
+    mean.weight = mean(weight_g),
+    n.weight = length(weight_g),
+    sum.weight = sum(weight_g))
   
 ```
 
-Here we have some data, but you can see that R does not like the missing data since it's not calculating the mean and sum of the weights when the groups contain NA values.
+This seems like it should work but we are still getting the same error. Why is that? 
 
-Let's add more to the pipe sequence!
 
 ```r
 kelp.long.sum = kelp %>% 
-  pivot_longer(cols = c(3:4),
-               names_to = "weight.time", 
-               values_to = "weight_g") %>%
-  filter(!is.na(weight_g)) %>% 
-  group_by(kelp.species, weight.time) %>%
-  summarise(
-    mean.weight = mean(as.numeric(weight_g)),
+  pivot_longer(cols = c(3:4),names_to = "weight.time", values_to = "weight_g") %>%
+  filter(!is.na(weight_g))%>% ## removes missing values (NAs)
+  ddply(c("kelp.species", "weight.time"), ## groups by kelp species and the measurement group
+        summarise,
+    mean.weight = mean(as.numeric(weight_g)), ## force weight_g to be numeric 
     n.weight = length(as.numeric(weight_g)),
     sum.weight = sum(as.numeric(weight_g)))
 
-View(kelp.long.sum)
 ```
 
 This looks better! We kept all our data and computed the summary statistics we wanted.
 
 Fixing one issue and building up until the next problem arises is the best way to build code.
 
-In tidyverse (and R in general), one of the most **common reasons to get errors is that the data are the wrong type**. Here, the weights were characters but had to be numeric.
+In tidyverse (and R in general), one of the most **common reasons to get errors is that the data are the wrong type**. Here, the weights were characters but had to be numeric. Often, numeric data will be converted to character data when transforming data, which is what pivot_longer() does. 
