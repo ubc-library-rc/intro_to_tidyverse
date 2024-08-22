@@ -10,7 +10,7 @@ nav_order: 5
 
 You will notice the `%>%` symbol throughout the workshop. This is called a pipe operator and it is part of the <a href="https://magrittr.tidyverse.org/" target="_blank">**magrittr** package</a>. It is used through the tidyverse to string many operations together.
 
-The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr/content/pipe.html" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
+The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
 
 R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
 
