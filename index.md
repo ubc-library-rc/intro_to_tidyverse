@@ -6,6 +6,9 @@ nav_order: 1
 
 This workshop presents some of the major packages in the tidyverse package in R.
 
+<strong>If you want to code along, make sure to have <a href="https://cran.r-project.org/bin/windows/base/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> installed </strong>
+
+
 ## How familiar are you with R and tidyverse?
 
 Indicate on screen with the annotate function in Zoom or in the chat.
