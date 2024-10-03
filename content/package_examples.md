@@ -107,7 +107,7 @@ Today, we are not exploring dates and times, but we are using the character vect
 There are many reasons you may want to manipulate characters in your dataset. Some of them are more on the data formatting side, while others are to extract parts of your data for further manipulation or analysis. We will go over both now.
 
 ## stringr
-### Data formatting (string)
+### Data formatting (stringr)
 
 Let's say we want to change the names of the iris species in our dataset to include the full common name of the iris.
 
@@ -147,54 +147,6 @@ iris$Species.Short = str_sub(iris$Species,
                              end=3)
 ```
 
-Why might we want to do this? Lets say you have long strings of letters, like a DNA sequence. R only likes to match perfect matches to each other. Matching partial matches is hard, but R does have ways of doing this.
-
-Let's pretend you have two datasets of DNA sequences, each with DNA sequences in them. Dataset 1, has sequences that are 74 letters (base pairs) long. Dataset 2, has sequences that are 32 letters long.
-
-You know that many of these sequences are actually from the same organism, but R will not merge the 74 letter long sequences with the 32 letter long ones, because they are different lengths, so they can not be perfect matches by definition.
-
-If we have an expectation that the 32 letter long sequences (yellow highlighted part) match the 74 letter long sequences (all the letters) starting at letter 27/74 up to 58/74 (see image below ehere yellow is the overlap region), we can use `str_sub` to only keep the region of the 74 letter long sequence that should match the 32 letter long sequence.
-
-![](images/dna.png)
-
-``` r
-## make 74 letter DNA sequence vector
-seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
-"atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct",
-"atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
-"atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct",
-"atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct",
-"atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
-
-## can you tell which of these matches the 32 letter sequence?
-seq32 = c("actgtatctacgggtatgtaataagcttatga",
-"actgtatctacgggtatgtattaagcttatga",
-"actgtatctacgcgtatgtaataagcttatga")
-```
-
-With one sequence you can just use the search function (CTRL+f or CMD+f) but pretend you had hundreds of these. You need to do this another way.
-
-For the sake of learning, let's see if we can merge these vectors without using `str_sub` to get the to be the same length. We are will use **lubridate**, with the function `intersect`.
-
-``` r
-sequences.that.match = intersect(seq74, seq32)
-## no matches!! 
-```
-
-Now that we confirmed that the sequences need to be the same length to merge, let's format them with `str_sub`. 
-
-``` r
-seq74trim = str_sub(seq74,
-                    start=27,
-                    end=58)
-```
-
-Running `str_sub` created a new vector that will be able to merge with the shorter sequences because they will be the same length, so you can have perfect macthes.
-
-``` r
-sequences.that.match = intersect(seq74trim, seq32)
-## 1 match now that the sequences are the same length!
-```
 
 The point of this example is to show why `str_sub` is different from `str_replace`:  
 `str_sub` **counts** to extract information.  
