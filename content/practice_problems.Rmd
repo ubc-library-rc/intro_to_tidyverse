@@ -1,0 +1,227 @@
+---
+title: "Tidyverse practice"
+output: pdf_document
+---
+
+# Practice problems
+
+The purpose of these practice problems is three fold:
+
+1.  Go over material we learned in the workshop
+
+2.  Learn new functions not covered in the workshop, which requires...
+
+3.  Learn to look up information about R to achieve your coding goals. This is the **main skill you need to become more proficient at coding**.
+
+All problems use the `mtcars` dataset so you will not need to import any data to do these problems. Also, some of the problems build on each other, so you will need to run th previous problems to do the later problems.
+
+Each question is possible to execute with one code chunk, so more complex workflows are broken up into multiple questions.
+
+As for all other times you are coding, if you use a solution that is not part of tidyverse, or break up the code into multiple lines in your code, as long as the output is the same, you should consider your answer correct. There are multiple ways to get the same answer and they are usually all equally valid.
+
+```{r}
+## load the tidyverse package
+library(tidyverse)
+
+## look at mtcars
+#View(mtcars)
+
+## see information about each column in mtcars
+summary(mtcars)
+
+## see first 6 rows of mtcars
+head(mtcars)
+
+## see last 6 rows of mtcars
+tail(mtcars)
+
+## save mtcars as a new dataframe mtcars_lib to be able to re-start with a fresh mtcars dataset easier if there are errors 
+mtcars_lib = mtcars
+```
+
+## **1. tidyr**
+
+### I. The row names of the mtcars_lib dataset are the make and model of the car. Change that by converting the row names to a column in the mtcars_lib dataset. Call this new column `make_model`
+
+### II. Why does problem 1.I work when run the first time but if you re-run the lines you get an error?
+
+
+### III. Separate the make_model column into two columns called make and model. Use the function `separate` to do this.
+
+*Note, you will get a message saying that some pieces of information are discarded. In this case, we don't actually care about the car names being correct, so we are going to pretend we don't get this message.*
+
+
+### IV. Pivot the entire dataset longer except the columns "make" and "model".
+Use whatever names you want to when creating the new things here. 
+
+
+## **2. dplyr**
+
+### I. mtcars_lib has a lot of column. Only keep the columns: make, model, cyl, and mpg using the function `select`. Save this subset of the columns into a new dataframe called mtcars_sub
+
+
+### II. Calculate the number of cars of each make and the average cyl and mpg for each group of make of car. Use group_by and summarise.
+
+Call this new dataframe `mt.summarised`, and call the new columns you are creating `sample.size`, `mean.cyl`, and `mean.mpg`
+
+
+## 3. ggplot2
+
+### I. Make a histogram to see what the distribution of cars per make in the mt.summarised dataset is.
+
+You are plotting the sample.size column you made in 2.II
+
+
+### II. After seeing this plot, do you think we have enough data to compare the mean cyl and mpg of the different car makes?
+
+
+### III. Go back to the mtcars_sub dataset, make a dot plot showing the cyl on the x-axis and the mpg on the y-axis.
+
+
+### IIII. What can you say about the mtcars_sub dataset after making this plot?
+
+
+## **4. stringr and lubridate**
+
+### I. Look for matching DNA sequences
+These are the two vectors of DNA sequences to compare to find matches. So, you need to find the `intersect` of `seq74` and `seq32`
+```{r}
+## make 74 letter DNA sequence vector
+seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
+
+## can you tell which of these matches the 32 letter sequence?
+seq32 = c("actgtatctacgggtatgtaataagcttatga",
+"actgtatctacgggtatgtattaagcttatga",
+"actgtatctacgcgtatgtaataagcttatga")
+
+## write your code below here
+```
+
+### II. There are no matches in 4.I. You have prior knowledge that the sequences should only overlap starting between the letters (base-pairs) 27 to 58 in seq74. Make a new vector called `seq74trim` that only contains the letters 27 to 58 (inclusively). 
+
+
+### III. Now check for overlap between seq32 and seq74trim
+
+
+# Solutions
+
+## **1. tidyr**
+
+### I. The row names of the mtcars_lib dataset are the make and model of the car. Change that by converting the row names to a column in the mtcars_lib dataset. Call this new column `make_model`
+
+```{r}
+mtcars_lib = mtcars_lib |> rownames_to_column(var="make_model")
+```
+
+### II. Why does problem 1.I work when run the first time but if you re-run the lines you get an error?
+
+Because when the rownames are extracted into a new column with `rownames_to_column`, there are no more rownames in `mtcars_lib`. This means that when you ask R to get the rownames a seccond time, R says "*I know you think I can take rownames from mtcars_lib, but I already did this, so there are no rownames, so I can't do what you're asking*".
+
+### III. Separate the make_model column into two columns called make and model. Use the function `separate` to do this.
+
+*Note, you will get a message saying that some pieces of information are discarded. In this case, we don't actually care about the car names being correct, so we are going to pretend we don't get this message.*
+
+```{r}
+mtcars_lib = mtcars_lib |> separate(col = make_model,
+                                    into = c("make", "model"),
+                                    sep=" ")
+```
+
+### IV. Pivot the entire dataset longer except the columns "make" and "model".
+Use whatever names you want to when creating the new things here. 
+
+```{r}
+mtcars_lib_long = mtcars_lib |> pivot_longer(cols=c(3:13),
+                                             names_to="metric_name",
+                                             values_to = "matric_value")
+```
+
+## **2. dplyr**
+
+### I. mtcars_lib has a lot of column. Only keep the columns: make, model, cyl, and mpg using the function `select`. Save this subset of the columns into a new dataframe called mtcars_sub
+
+```{r}
+mtcars_sub = mtcars_lib |> select(make, model, cyl, mpg)
+```
+
+### II. Calculate the number of cars of each make and the average cyl and mpg for each group of make of car. Use group_by and summarise.
+
+Call this new dataframe `mt.summarised`, and call the new columns you are creating `sample.size`, `mean.cyl`, and `mean.mpg`
+
+```{r}
+mt.summarised = mtcars_sub %>% 
+  group_by(make) %>%
+  summarise(
+    sample.size = length(make),
+    mean.cyl = mean(cyl),
+    mean.mpg = mean(mpg) 
+    )
+```
+
+## 3. ggplot2
+
+### I. Make a histogram to see what the distribution of cars per make in the mt.summarised dataset is.
+
+You are plotting the sample.size column you made in 2.II
+
+```{r}
+ggplot(mt.summarised, aes(sample.size))+
+  geom_histogram()
+```
+
+### II. After seeing this plot, do you think we have enough data to compare the mean cyl and mpg of the different car makes?
+
+No!!!! Most makes only have 1 datapoint, so we really cannot compare the makes to each other.
+
+### III. Go back to the mtcars_sub dataset, make a dot plot showing the cyl on the x-axis and the mpg on the y-axis.
+
+```{r}
+ggplot(mtcars_sub, aes(x=cyl, y=mpg))+
+  geom_point()
+```
+
+### IIII. What can you say about the mtcars_sub dataset after making this plot?
+
+We can see that cars have either 4, 6, or 8 cyl. Within a cyl number, there is variation in mpg between cars. In general there appears to be a trend that a higher cyl number means a lower mpg. Although this not true for every single car.
+
+## **4. stringr and lubridate**
+### I. Look for matching DNA sequences
+These are the two vectors of DNA sequences to compare to find matches. So, you need to find the `intersect` of `seq74` and `seq32`
+```{r}
+## make 74 letter DNA sequence vector
+seq74 = c("atgctgttcgactgatgctttgactgactgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctaccggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgaccgtatctacgggtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctacttgtatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactgtatctacttctatgtaataagcttatgactgactgtatctgtct",
+"atgctgttcgactgatgctttgactgactatatctacttgtatgtaataagcttatgactgactgtatctgtct")
+
+## can you tell which of these matches the 32 letter sequence?
+seq32 = c("actgtatctacgggtatgtaataagcttatga",
+"actgtatctacgggtatgtattaagcttatga",
+"actgtatctacgcgtatgtaataagcttatga")
+
+## solution here
+sequences.that.match = intersect(seq74, seq32)
+## no matches!! 
+```
+
+### II. There are no matches in 4.I. You have prior knowledge that the sequences should only overlap starting between the letters (base-pairs) 27 to 58 in seq74. Make a new vector called `seq74trim` that only contains the letters 27 to 58 (inclusively). 
+```{r}
+seq74trim = str_sub(seq74,
+                    start=27,
+                    end=58)
+```
+
+### III. Now check for overlap between seq32 and seq74trim
+```{r}
+sequences.that.match = intersect(seq74trim, seq32)
+## 1 match now that the sequences are the same length!
+```
+
+
