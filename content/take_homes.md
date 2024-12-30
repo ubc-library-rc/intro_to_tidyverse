@@ -5,8 +5,8 @@ nav_order: 7
 ---
 
 # Practice problems
-To practice and learn more, you can work from this <a href="https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.Rmd" download>RMarkdown file</a>.
-To see the rendered RMarkdown file, you can download this <a href="https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.pdf" download>PDF</a>. 
+<p>To practice and learn more, you can work from this <a href="https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.Rmd" target="_blank">RMarkdown file</a>.</p>
+<p>To see the rendered RMarkdown file, you can download this <a href="https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.pdf" target="_blank">PDF</a>.</p> 
 
 
 # Take home messages
