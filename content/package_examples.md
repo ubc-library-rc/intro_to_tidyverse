@@ -75,25 +75,27 @@ The UBC libraries has a <a href="https://ubc-library-rc.github.io/relational-dat
 ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>.  
 You can also refer to the <a href="https://ubc-library-rc.github.io/R-viz/" target="_blank"> library workshop about ggplot2</a>.
 
-<strong>Spend the next 5 minutes removing and editing parts of this plot code to figure out what they do. Note down errors that you get and we can discuss them as a group!</strong>
-
+The customization is built on a standardized syntax:
 ``` r
-ggplot(iris.full, aes(x=Species))+
-  geom_boxplot(aes(y=metric_value, color=Species))+
-  geom_point(aes(y=metric.mean, color=Species), cex=3, pch=8)+
-  facet_wrap(.~metric_name, scales="free")+
-  scale_color_manual(values=c("#EE82EE", "#9400D3", "#483D8B"))+
-  theme(axis.text = element_text(colour = "black", face = "bold", size = 12),
-  legend.text = element_text(size = 8, face ="bold", colour ="black"),
-  legend.title = element_text(size = 14, colour = "black", face = "bold"))+
-  labs(x="Iris species", y="Metric Value (no units)", color="Iris species")
+ggplot(data, aes(x=xvariable, y=yvariable)+
+geom_plottype()+
+other customizations 
 ```
+### ggplot2 example
+``` r
+## basic box plot
+ggplot(iris, aes(x=Species, y=Petal.Length))+
+         geom_boxplot()
 
-<div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
-<img src="images/iris_plot.png" alt="row-wise operations" width="80%"/>
-</div>
-
-
+## basic box plot + customization
+  ## can customize insides aes() or in additional elements strung on to the base plot code with a +
+    ## sometimes you need to do both. set the color variable in aes() but the list of colors to use is in a new section
+ggplot(iris, aes(x=Species, y=Petal.Length, color=Species))+
+  geom_boxplot()+
+  theme_bw()+
+  labs(x="Species", y="Length", color="Species")+
+  scale_color_manual(values=c("#08ff0a","blue", "#d600ff"))
+```
 
 
 ## stringr and lubridate
