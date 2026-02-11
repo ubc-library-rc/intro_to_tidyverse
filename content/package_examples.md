@@ -6,18 +6,18 @@ nav_order: 5
 
 # Let's wrangle and plot some data
 
-## magtittr
+## magrittr
 
-You will notice the `%>%` symbol throughout the workshop. This is called a pipe operator and it is part of the <a href="https://magrittr.tidyverse.org/" target="_blank">**magrittr** package</a>. It is used through the tidyverse to string many operations together.
+You will notice the `%>%` or `->` (both are same) symbol throughout the workshop. This is called a pipe operator and it is part of the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}. It is used through the tidyverse to string many operations together.
 
-The library has <a href="https://ubc-library-rc.github.io/data-manipulation-dplyr" target="_blank">another workshop</a>, where we go over the pipe operator more in detail.
+The library has [another workshop](https://ubc-library-rc.github.io/data-manipulation-dplyr){:target="_blank"}, where we go over the pipe operator more in detail.
 
 R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
 
 
 ## tidyr
 
-tidyr is a package that allows easy data manipulation. To see the full options and a tidyr cheat sheet, go to <a href="https://tidyr.tidyverse.org" target="_blank">their website</a>.
+tidyr is a package that allows easy data manipulation. To see the full options and a tidyr cheat sheet, go to [their website](https://tidyr.tidyverse.org){:target="_blank"}.
 
 Today, we will talk about pivoting data, which is an important first step before analyzing and plotting data sets.
 
@@ -47,7 +47,7 @@ View(iris.longer)
 
 ## dplyr
 
-dplyr is a package that helpls with summarizing data. For the full list of what that means go to <a href="https://dplyr.tidyverse.org" target="_blank">their website</a>. 
+dplyr is a package that helps with summarizing data. For the full list of what that means go to [their website](https://dplyr.tidyverse.org){:target="_blank"}. 
 
 Let's say we want to find some means and sample numbers in the iris.long dataset
 
@@ -68,12 +68,12 @@ iris.full = full_join(iris.longer, iris.summarised)
 
 How did this join work? Do you know of other joins?
 
-The UBC libraries has a <a href="https://ubc-library-rc.github.io/relational-data-r/" target="_blank">workshop about joins</a>.
+The UBC libraries has a [workshop about joins](https://ubc-library-rc.github.io/relational-data-r/){:target="_blank"}.
 
 ## ggplot2
 
-ggplot2 is is a plotting package that is highly customizable. For the full resources go to <a href="https://ggplot2.tidyverse.org" target="_blank">their website</a>.  
-You can also refer to the <a href="https://ubc-library-rc.github.io/R-viz/" target="_blank"> library workshop about ggplot2</a>.
+ggplot2 is a plotting package that is highly customizable. For the full resources go to [their website](https://ggplot2.tidyverse.org){:target="_blank"}.  
+You can also refer to the [library workshop about ggplot2](https://ubc-library-rc.github.io/R-viz/){:target="_blank"}.
 
 The customization is built on a standardized syntax:
 ``` r
@@ -100,9 +100,9 @@ ggplot(iris, aes(x=Species, y=Petal.Length, color=Species))+
 
 ## stringr and lubridate
 
-<strong>stringr</strong> is a package that let's you easily manipulate character data. For the full resources go to <a href="https://stringr.tidyverse.org" target="_blank">their website</a>. 
+**stringr** is a package that let's you easily manipulate character data. For the full resources go to [their website](https://stringr.tidyverse.org){:target="_blank"}. 
 
-<strong>lubridate</strong> is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go to <a href="https://lubridate.tidyverse.org" target="_blank">their website</a>. 
+**lubridate** is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go to [their website](https://lubridate.tidyverse.org){:target="_blank"}. 
 
 Today, we are not exploring dates and times, but we are using the character vector manipulation part of lubridate. 
 
