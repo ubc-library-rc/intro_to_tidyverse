@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Extra practice and workshop Summary
+title: Extra Practice and Workshop Summary
 nav_order: 7
 ---
 
 # Practice problems
-<p>To practice and learn more, you can work from this <a href="https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.Rmd" target="_blank">RMarkdown file</a>.</p>
-<p>To see the rendered RMarkdown file, you can download this <a href="https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.pdf" target="_blank">PDF</a>.</p> 
+To practice and learn more, you can work from this [RMarkdown file](https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.Rmd){:target="_blank"}.
 
+To see the rendered RMarkdown file, you can download this [PDF](https://github.com/ubc-library-rc/intro_to_tidyverse/blob/main/content/practice_problems.pdf){:target="_blank"}.
 
 # Take home messages
 
