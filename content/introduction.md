@@ -29,7 +29,6 @@ There are other UBC Library workshops that might be of interest and are related 
 
 Like every other R package, you have to install tidyverse with `install.packages("tidyverse")` the first time you use it, and then only load it with `library(tidyverse)` after that.
 
-Input
 
 ``` r
 # install
@@ -39,6 +38,9 @@ install.packages("tidyverse")
 library(tidyverse)
 ```
 
-![](images/library_tidyverse.png)
+![Console output after loading the tidyverse package](images/library_tidyverse.png)
 
-After running the `library(tidyverse)` command, you will see some **core tidyverse packages** and some **conflicts** in your console. It's okay to have conflicts most of the time. Today, we will focus on some of the core tidyverse packages.
+After running the `library(tidyverse)` command, you will see some **core tidyverse packages** and some **conflicts** in your console.
+
+{: .note }
+It's okay to have conflicts most of the time. Today, we will focus on some of the core tidyverse packages.
