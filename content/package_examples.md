@@ -23,18 +23,19 @@ Today, we will talk about pivoting data, which is an important first step before
 
 We will work with the iris data
 
+<img src="images/iris_flowers.png" width="600" alt="Iris Flowers"/>
+[Image Source: CodeSignal](https://codesignal.com/learn/courses/intro-to-unsupervised-machine-learning/lessons/exploring-and-visualizing-the-iris-dataset)
+
 ``` r
+# open the dataset to see what it looks like right now
 View(iris)
 ```
 
 The iris data is currently in a "wide" format. Let's change it into a "long" format.  
 
 ``` r
-# open the dataset to see what it looks like right now
-View(iris)
-
 # change to long format
-iris.longer = iris %>% pivot_longer(cols=c(1:4), 
+iris.longer = iris -> pivot_longer(cols=c(1:4), 
                                     names_to = "metric_name",
                                     values_to = "metric_value")
 
@@ -44,7 +45,6 @@ View(iris.longer)
 ```
 
 
-
 ## dplyr
 
 dplyr is a package that helps with summarizing data. For the full list of what that means go to [their website](https://dplyr.tidyverse.org){:target="_blank"}. 
@@ -52,8 +52,8 @@ dplyr is a package that helps with summarizing data. For the full list of what t
 Let's say we want to find some means and sample numbers in the iris.long dataset
 
 ``` r
-iris.summarised = iris.longer %>% 
-  group_by(Species, metric_name) %>%
+iris.summarised = iris.longer -> 
+  group_by(Species, metric_name) ->
   summarise(
     sample.size = length(metric_value),
     metric.mean = mean(metric_value) 
@@ -76,12 +76,15 @@ ggplot2 is a plotting package that is highly customizable. For the full resource
 You can also refer to the [library workshop about ggplot2](https://ubc-library-rc.github.io/R-viz/){:target="_blank"}.
 
 The customization is built on a standardized syntax:
+
 ``` r
-ggplot(data, aes(x=xvariable, y=yvariable)+
-geom_plottype()+
-other customizations 
+ggplot(data, aes(x = xvariable, y = yvariable)) +
+  geom_plottype() +
+  other_customizations
 ```
+
 ### ggplot2 example
+
 ``` r
 ## basic box plot
 ggplot(iris, aes(x=Species, y=Petal.Length))+
@@ -98,17 +101,10 @@ ggplot(iris, aes(x=Species, y=Petal.Length, color=Species))+
 ```
 
 
-## stringr and lubridate
+## stringr 
 
 **stringr** is a package that let's you easily manipulate character data. For the full resources go to [their website](https://stringr.tidyverse.org){:target="_blank"}. 
 
-**lubridate** is meant to help R users format date and time data, which are actually a huge pain to work with in R. lubridate even lets you deal with extra annoying things, like daylights savings time in your multi-year datasets. For the full resources go to [their website](https://lubridate.tidyverse.org){:target="_blank"}. 
-
-Today, we are not exploring dates and times, but we are using the character vector manipulation part of lubridate. 
-
-There are many reasons you may want to manipulate characters in your dataset. Some of them are more on the data formatting side, while others are to extract parts of your data for further manipulation or analysis. We will go over both now.
-
-## stringr
 ### Data formatting (stringr)
 
 Let's say we want to change the names of the iris species in our dataset to include the full common name of the iris.
@@ -122,9 +118,13 @@ iris$Species=str_replace(iris$Species, # to the Species column in the iris dataf
 Repeat this activity with the *setosa* iris in the iris dataset (answer below)
 
 <details><summary><strong> Answer </strong></summary>
+
+``` r
 iris$Species=str_replace(iris$Species, 
             "setosa", 
             "bristle-pointed iris")
+```
+
 </details>
 
 
@@ -156,7 +156,8 @@ The point of this example is to show why `str_sub` is different from `str_replac
 
 In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreds of sequences manually and look for matches that way.
 
-
+{: .note }
+**A note on lubridate:** lubridate helps R users format date and time data. We won't cover it today, but see [their website](https://lubridate.tidyverse.org){:target="_blank"} for more.
 
 
 
