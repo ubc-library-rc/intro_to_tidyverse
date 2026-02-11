@@ -14,15 +14,16 @@ The tidyverse package is a package of packages that allows users to load in comm
 ![](images/tidyverse_component_pacakges.png)
 *Source: [Tidyverse data wrangling](https://hbctraining.github.io/Intro-to-R/lessons/tidyverse_data_wrangling.html)*
 
-Tidyverse is very well maintained and has a very wide community of users. See their site with information about their mission and for additional tutorials
+### Why use tidyverse?
 
-<https://www.tidyverse.org/>
+Tidyverse is very well maintained and has a very wide community of users. See their [site](https://www.tidyverse.org/) for information about their mission and for additional tutorials.
 
-There are other UBC libraries workshops that might be of interest and are related to this one
+### Related workshops
 
-<https://ubc-library-rc.github.io/relational-data-r/>
+There are other UBC Library workshops that might be of interest and are related to this one:
 
-<https://ubc-library-rc.github.io/data-manipulation-dplyr/>
+- [Relational data in R](https://ubc-library-rc.github.io/relational-data-r/)
+- [Data manipulation with dplyr](https://ubc-library-rc.github.io/data-manipulation-dplyr/)
 
 ## Installing and loading tidyverse
 
