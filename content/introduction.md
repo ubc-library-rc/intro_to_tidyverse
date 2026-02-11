@@ -9,7 +9,7 @@ nav_order: 4
 
 R packages allow you to use additional functions that are not pre-programmed as part of base R.
 
-The tidyverse package, is a package of packages that allows users to load in common packages quickly, rather than one at at time.
+The tidyverse package is a package of packages that allows users to load in common packages quickly, rather than one at a time.
 
 ![](images/tidyverse_component_pacakges.png)
 *Source: [Tidyverse data wrangling](https://hbctraining.github.io/Intro-to-R/lessons/tidyverse_data_wrangling.html)*
