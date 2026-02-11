@@ -24,7 +24,7 @@ flights[flights == "not.rec"] <- NA
 Let's pivot these data longer to make analysis easier
 
 ```r
-flights.long = flights %>% 
+flights.long = flights |> 
   pivot_longer(cols = c(3:4),
                names_to = "duration.type", 
                values_to = "hours")
@@ -48,7 +48,7 @@ flights.long.sum = flights |>
   
 ```
 <div style="margin-left: 5%; margin-top: 20px; margin-bottom: 40px">
-<img src="images/char_error_versions.jpg" alt="row-wise operations" width="70%"/>
+<img src="images/char_error_versions.png" alt="row-wise operations" width="70%"/>
 </div>
 
 
