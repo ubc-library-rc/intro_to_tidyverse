@@ -8,7 +8,7 @@ nav_order: 5
 
 ## magrittr
 
-You will notice the `%>%` or `->` (both are same) symbol throughout the workshop. This is called a pipe operator and it is part of the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}. It is used through the tidyverse to string many operations together.
+You will notice the `%>%` or `|>` (both are same) symbol throughout the workshop. This is called a pipe operator and it is part of the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}. It is used through the tidyverse to string many operations together.
 
 The library has [another workshop](https://ubc-library-rc.github.io/data-manipulation-dplyr){:target="_blank"}, where we go over the pipe operator more in detail.
 
@@ -35,7 +35,7 @@ The iris data is currently in a "wide" format. Let's change it into a "long" for
 
 ``` r
 # change to long format
-iris.longer = iris -> pivot_longer(cols=c(1:4), 
+iris.longer = iris |> pivot_longer(cols=c(1:4), 
                                     names_to = "metric_name",
                                     values_to = "metric_value")
 
@@ -52,8 +52,8 @@ dplyr is a package that helps with summarizing data. For the full list of what t
 Let's say we want to find some means and sample numbers in the iris.long dataset
 
 ``` r
-iris.summarised = iris.longer -> 
-  group_by(Species, metric_name) ->
+iris.summarised = iris.longer |> 
+  group_by(Species, metric_name) |>
   summarise(
     sample.size = length(metric_value),
     metric.mean = mean(metric_value) 

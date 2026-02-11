@@ -24,7 +24,7 @@ flights[flights == "not.rec"] <- NA
 Let's pivot these data longer to make analysis easier
 
 ```r
-flights.long = flights -> 
+flights.long = flights %>% 
   pivot_longer(cols = c(3:4),
                names_to = "duration.type", 
                values_to = "hours")
@@ -37,8 +37,8 @@ Let's say we want to string some operations together. Use that pipe!
 # install.packages("plyr")
 library(plyr)
 
-flights.long.sum = flights -> 
-  pivot_longer(cols = c(3:4), names_to = "duration.type", values_to = "hours") ->
+flights.long.sum = flights |> 
+  pivot_longer(cols = c(3:4), names_to = "duration.type", values_to = "hours") |>
   ddply(c("aircraft.type", "duration.type"),  ## ddply is part of plyr
         summarise,
     mean.hours = mean(hours),
@@ -59,9 +59,9 @@ The NAs are a clue. Look at the data type of the flight hours. They are characte
 Let's fix the variable type directly in our little pipe chain!
 
 ```r
-flights.long.sum = flights ->
-  pivot_longer(cols = c(3:4), names_to = "duration.type", values_to = "hours") ->
-  filter(!is.na(hours)) -> ## removes missing values (NAs)
+flights.long.sum = flights |>
+  pivot_longer(cols = c(3:4), names_to = "duration.type", values_to = "hours") |>
+  filter(!is.na(hours)) |> ## removes missing values (NAs)
   ddply(c("aircraft.type", "duration.type"), ## groups by aircraft type and duration type
         summarise,
     mean.hours = mean(hours),
@@ -74,9 +74,9 @@ This seems like it should work but we are still getting the same error. Why is t
 
 
 ```r
-flights.long.sum = flights ->
-  pivot_longer(cols = c(3:4), names_to = "duration.type", values_to = "hours") ->
-  filter(!is.na(hours)) -> ## removes missing values (NAs)
+flights.long.sum = flights |>
+  pivot_longer(cols = c(3:4), names_to = "duration.type", values_to = "hours") |>
+  filter(!is.na(hours)) |> ## removes missing values (NAs)
   ddply(c("aircraft.type", "duration.type"), ## groups by aircraft type and duration type
         summarise,
     mean.hours = mean(as.numeric(hours)), ## force hours to be numeric 
