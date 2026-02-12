@@ -24,6 +24,7 @@ There are other UBC Library workshops that might be of interest and are related 
 
 - [Relational data in R](https://ubc-library-rc.github.io/relational-data-r/)
 - [Data manipulation with dplyr](https://ubc-library-rc.github.io/data-manipulation-dplyr/)
+- [Data visualization with ggplot2](https://ubc-library-rc.github.io/ggplot2_intro_workshop/)
 
 ## Installing and loading tidyverse
 

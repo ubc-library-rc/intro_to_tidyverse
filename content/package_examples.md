@@ -10,7 +10,7 @@ nav_order: 5
 
 You will notice the `%>%` or `|>` (both are same) symbol throughout the workshop. This is called a pipe operator and it is part of the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}. It is used through the tidyverse to string many operations together.
 
-The library has [another workshop](https://ubc-library-rc.github.io/data-manipulation-dplyr){:target="_blank"}, where we go over the pipe operator more in detail.
+UBC Library has [another workshop](https://ubc-library-rc.github.io/data-manipulation-dplyr){:target="_blank"}, where we go over the pipe operator more in detail.
 
 R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
 
@@ -23,7 +23,7 @@ Today, we will talk about pivoting data, which is an important first step before
 
 We will work with the iris data
 
-<img src="images/iris_flowers.png" width="600" alt="Iris Flowers"/>
+<img src="images/iris_flowers.png" width="600" alt="Iris Flowers"/>  
 [Image Source: CodeSignal](https://codesignal.com/learn/courses/intro-to-unsupervised-machine-learning/lessons/exploring-and-visualizing-the-iris-dataset)
 
 ``` r
@@ -49,7 +49,7 @@ View(iris.longer)
 
 dplyr is a package that helps with summarizing data. For the full list of what that means go to [their website](https://dplyr.tidyverse.org){:target="_blank"}. 
 
-Let's say we want to find some means and sample numbers in the iris.long dataset
+Let's say we want to find some means and sample numbers in the iris.longer dataset
 
 ``` r
 iris.summarised = iris.longer |> 
@@ -68,7 +68,7 @@ iris.full = full_join(iris.longer, iris.summarised)
 
 How did this join work? Do you know of other joins?
 
-The UBC libraries has a [workshop about joins](https://ubc-library-rc.github.io/relational-data-r/){:target="_blank"}.
+UBC Library has a [workshop about joins](https://ubc-library-rc.github.io/relational-data-r/){:target="_blank"}.
 
 ## ggplot2
 
@@ -119,11 +119,11 @@ Repeat this activity with the *setosa* iris in the iris dataset (answer below)
 
 <details><summary><strong> Answer </strong></summary>
 
-``` r
+<pre>
 iris$Species=str_replace(iris$Species, 
             "setosa", 
             "bristle-pointed iris")
-```
+</pre>
 
 </details>
 
