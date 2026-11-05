@@ -1,10 +1,10 @@
 ---
 layout: default
-title: More Tidyverse
+title: More tidyverse
 nav_order: 6
 ---
 
-# Optional: More Tidyverse
+# Optional: More tidyverse
 
 These sections continue from Working with Tidyverse. They use the same data and R script, and build on the `sgvp_flag` data frame we created in section 4.
 

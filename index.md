@@ -4,6 +4,8 @@ title: Outline
 nav_order: 1
 ---
 
+# Intro to the tidyverse R package
+
 This workshop presents some of the major packages in the tidyverse package in R.
 
 <strong>If you want to code along, make sure to have <a href="https://cran.r-project.org">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> installed </strong>

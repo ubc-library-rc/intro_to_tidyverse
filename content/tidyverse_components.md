@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Working with Tidyverse
+title: Working with tidyverse
 nav_order: 5
 ---
 
@@ -10,7 +10,7 @@ nav_order: 5
 
 We will use the 2023 Survey on Giving, Volunteering and Participating (SGVP) from Statistics Canada. Our question for today is:
 
-**Who volunteers in Canada? How does the volunteering rate differ by age group and gender?**
+**What percentage of Canadians volunteer? How does the volunteering rate differ by age group and gender?**
 
 Before we start, download these two files and save them in the **same** folder:
 

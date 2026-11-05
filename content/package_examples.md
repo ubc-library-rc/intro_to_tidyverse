@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Tidyverse Packages
+title: Tidyverse packages
 parent: Additional content
 nav_order: 1
 ---
 
-# Tidyverse Packages
+# Tidyverse packages
 
 The following contains additional examples of the tidyverse packages using the iris dataset that comes built into R.
 

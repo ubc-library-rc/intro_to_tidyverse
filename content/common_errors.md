@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Common Errors
+title: Common errors
 parent: Additional content
 nav_order: 2
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extra Practice
+title: Extra practice
 parent: Additional content
 nav_order: 3
 ---
