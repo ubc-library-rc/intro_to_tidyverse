@@ -10,8 +10,8 @@ This workshop presents some of the major packages in the tidyverse package in R.
 
 Download these two files and save them in the **same** folder:
 
-- <a href="files/sgvp_2023_workshop.csv" download>Download the data (sgvp_2023_workshop.csv)</a>
-- <a href="files/Intro_Tidyverse_Script.R" download>Download the R script (Intro_Tidyverse_Script.R)</a>
+- <a href="{{ '/files/sgvp_2023_workshop.csv' | relative_url }}" download>Download the data (sgvp_2023_workshop.csv)</a>
+- <a href="{{ '/files/tidyverse_workshop.R' | relative_url }}" download>Download the R script (tidyverse_workshop.R)</a>
 
 ## Learning objectives
 
