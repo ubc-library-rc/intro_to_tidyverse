@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Common Errors
-nav_order: 6
+nav_order: 7
 ---
 # Common Errors in Tidyverse
 

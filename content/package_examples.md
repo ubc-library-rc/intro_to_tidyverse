@@ -1,16 +1,19 @@
 ---
 layout: default
-title: Tidyverse components
-nav_order: 5
+title: Tidyverse Packages and Additional Examples
+nav_order: 6
 ---
 
-# Let's wrangle and plot some data
+# Package functionalities and additional examples
+
+This page is an extra resource showing what some tidyverse packages can do, with more examples using the iris dataset that comes built into R. It is not part of the main workshop, but you can work through it on your own.
+
 
 ## magrittr
 
-You will notice the `%>%` or `|>` (both are same) symbol throughout the workshop. This is called a pipe operator and it is part of the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}. It is used through the tidyverse to string many operations together.
+You will notice the `%>%` or `|>` symbol in a lot of tidyverse code. This is called a pipe operator, and it is used throughout the tidyverse to string many operations together. `%>%` comes from the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}, and `|>` is built into R. For most purposes they work the same way.
 
-UBC Library has [another workshop](https://ubc-library-rc.github.io/data-manipulation-dplyr){:target="_blank"}, where we go over the pipe operator more in detail.
+UBC Library has [another workshop](https://ubc-library-rc.github.io/data-manipulation-dplyr){:target="_blank"}, where we go over the pipe operator in more detail.
 
 R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to get the pipe operator instead of actually typing out % > % every time. 
 
@@ -19,9 +22,9 @@ R has built in keyboard shortcuts (CMD+Shift+M for MAC; CTRL+Shift+M for PC) to 
 
 tidyr is a package that allows easy data manipulation. To see the full options and a tidyr cheat sheet, go to [their website](https://tidyr.tidyverse.org){:target="_blank"}.
 
-Today, we will talk about pivoting data, which is an important first step before analyzing and plotting data sets.
+This section covers pivoting data, which is an important first step before analyzing and plotting data sets.
 
-We will work with the iris data
+These examples use the iris data.
 
 <img src="images/iris_flowers.png" width="600" alt="Iris Flowers"/>  
 [Image Source: CodeSignal](https://codesignal.com/learn/courses/intro-to-unsupervised-machine-learning/lessons/exploring-and-visualizing-the-iris-dataset)
@@ -60,7 +63,7 @@ iris.summarised = iris.longer |>
     )
 ```
 
-We are going to keep using dplyr and use a cheat to add the summarized data back into the longer iris dataset.
+We can keep using dplyr and use a cheat to add the summarized data back into the longer iris dataset.
 
 ``` r
 iris.full = full_join(iris.longer, iris.summarised)
@@ -91,7 +94,7 @@ ggplot(iris, aes(x=Species, y=Petal.Length))+
          geom_boxplot()
 
 ## basic box plot + customization
-  ## can customize insides aes() or in additional elements strung on to the base plot code with a +
+  ## can customize inside aes() or in additional elements strung on to the base plot code with a +
     ## sometimes you need to do both. set the color variable in aes() but the list of colors to use is in a new section
 ggplot(iris, aes(x=Species, y=Petal.Length, color=Species))+
   geom_boxplot()+
@@ -103,7 +106,7 @@ ggplot(iris, aes(x=Species, y=Petal.Length, color=Species))+
 
 ## stringr 
 
-**stringr** is a package that let's you easily manipulate character data. For the full resources go to [their website](https://stringr.tidyverse.org){:target="_blank"}. 
+**stringr** is a package that lets you easily manipulate character data. For the full resources go to [their website](https://stringr.tidyverse.org){:target="_blank"}. 
 
 ### Data formatting (stringr)
 
@@ -134,7 +137,7 @@ Let's do the same thing, but with the example that comes up when you type `?str_
 fruits <- c("one apple", "two pears", "three bananas")
 fruits2=str_replace(fruits, # in fruits
             "[aeiou]", # find any of these letters
-            "-") # replace the letters in the [] above with 
+            "-") # replace the first matching letter with -
 ```
 
 What differences in structure within the `str_replace` function do you notice between this example and the example we just ran through with the iris data? Hint, **iris** is a *dataframe* and **fruits** is a *vector.*
@@ -157,7 +160,6 @@ The point of this example is to show why `str_sub` is different from `str_replac
 In situations where you have different string of letters (like in many DNA sequences), using perfect matches to extract a subset of your data for further analysis, like merging with other DNA sequences, is not possible because it is not reasonable to type out hundreds of sequences manually and look for matches that way.
 
 {: .note }
-**A note on lubridate:** lubridate helps R users format date and time data. We won't cover it today, but see [their website](https://lubridate.tidyverse.org){:target="_blank"} for more.
-
+**A note on lubridate:** lubridate helps R users format date and time data. It isn't covered here, but see [their website](https://lubridate.tidyverse.org){:target="_blank"} for more.
 
 
