@@ -9,7 +9,7 @@
 
 # In RStudio go to Session > Set Working Directory > To Source File Location
 
-# This tells to look for data in the same folder where the script you are 
+# This tells R to look for data in the same folder where the script you are 
 # writing is saved.
 
 #------------------------------------------------------------------------------#
@@ -143,6 +143,12 @@ hours_summary <- sgvp |>
     sd_hours     = sd(volunteer_hours),     # standard deviation 
     total_hours  = sum(volunteer_hours)     # sum
   )
+
+#==============================================================================#
+# OPTIONAL SECTIONS
+# If we run out of time, you can work through sections 6 to 10 on your own.
+# They match the "More Tidyverse" page on the workshop website.
+#==============================================================================#
 
 #------------------------------------------------------------------------------#
 # (6) SUMMARISING BY GROUP

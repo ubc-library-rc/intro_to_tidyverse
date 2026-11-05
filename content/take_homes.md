@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Extra Practice and Workshop Summary
-nav_order: 8
+title: Extra Practice
+parent: Additional content
+nav_order: 3
 ---
 
 # Practice problems

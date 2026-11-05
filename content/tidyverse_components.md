@@ -34,28 +34,28 @@ To check where R is looking, run:
 getwd()
 ```
 
-## (1) Loading the tidyverse package
+## 1. Loading the tidyverse package
 
-Install the tidyverse. You only need to do this once on your computer! If you haven't installed it yet, remove the `#` and run this line:
+Install the tidyverse. You only need to do this once on your computer! If you haven't installed it yet, run this line:
 
 ``` r
-# install.packages("tidyverse")
+install.packages("tidyverse")
 ```
 
-Load the tidyverse. You need to do this in every R session:
+Next, load the tidyverse. You need to do this in every R session:
 
 ``` r
 library(tidyverse)
 ```
 
-After running the `library(tidyverse)` command, you will see some **core tidyverse packages** and some **conflicts** in your console.
+After running the `library(tidyverse)` command, you will see some core tidyverse packages and some conflicts in your console.
 
 When we load the tidyverse we automatically load 9 commonly used packages. If you go to the Packages tab in the bottom right of RStudio, you can see which packages are loaded into your R session.
 
 {: .note }
-It's okay to have conflicts most of the time. Today, we will focus on some of the core tidyverse packages.
+It's okay to have conflicts most of the time! Conflicts tell us that two packages have a function with the same name. When this happens, R uses the version from the package that was loaded most recently.
 
-## (2) Reading data
+## 2. Reading data
 
 Our data is saved as a csv file. We can use the `read_csv()` function to import this data into R.
 
@@ -72,27 +72,13 @@ sgvp <- read_csv("sgvp_2023_workshop.csv")
 - The file name goes inside quotes. Because we set the working directory to the folder with our files, R knows where to find it. Alternatly, if you have not set a working directory you can specify the full file path. 
 - `sgvp <-` saves the data as an object called `sgvp`, so we can use it in the rest of the workshop. You will see it appear in the Environment pane.
 
-When the data loads, `read_csv()` prints a short report:
-
-```
-Rows: 26678 Columns: 10
-── Column specification ─────────────────────────
-Delimiter: ","
-chr (6): province, age_group, gender, education, volunteer, donor
-dbl (4): id, weight, volunteer_hours, donation_amount
-```
-
-This tells us how many rows and columns we have, and what type of data is in each column.
-
 {: .note }
 Not all data comes as a cav. Two other packages that can be used to load other data types are installed with tidyverse but will need to be loaded separately before you can use them:<br>
 **readxl** reads Excel files: `library(readxl)` then `read_excel("file.xlsx")`<br>
 **haven** reads files from other statistics software: `library(haven)` then `read_sav("file.sav")` for SPSS, `read_dta("file.dta")` for Stata, or `read_sas("file.sas7bdat")` for SAS
 
 
-## (3) Choosing columns and rows
-
-The `<-` saves the result as a new object. New objects appear in the Environment pane (top right), which shows how many rows (obs.) and columns (variables) each one has.
+## 3. Choosing columns and rows
 
 `select()` keeps the **columns** you name. For our question we only need these four columns:
 
@@ -108,7 +94,7 @@ sgvp_bc <- filter(sgvp, province == "British Columbia")
 
 ### The pipe
 
-We can chain steps together with the pipe: keep people in BC, and then keep only the columns we need.
+You will frequently see a pipe symbol in R code (`|>`). This is used to chain steps together: keep people in BC, and then keep only the columns we need.
 
 The pipe `|>` takes the result on its left and passes it to the function on its right. You can read it as "and then".
 
@@ -122,22 +108,9 @@ sgvp_bc <- sgvp |>
 
 Notice we no longer write `sgvp` inside `filter()` or `select()`.
 
-**Try it:** keep only the people who volunteered. How many rows are left?
+## 4. Creating new columns
 
-<details><summary><strong> Answer </strong></summary>
-
-<pre>
-sgvp_volunteers <- sgvp |>
-  filter(volunteer == "Volunteer")
-</pre>
-
-11,352 rows are left.
-
-</details>
-
-## (4) Creating new columns
-
-We want to convert volunteer status to a number: 1 for volunteers and 0 for everyone else.
+We want to create a new column that stores volunteer status as a number: 1 for volunteers and 0 for everyone else.
 
 `mutate()` adds a new column (or changes an existing one):
 
@@ -158,7 +131,7 @@ sgvp_flag <- sgvp |>
   mutate(volunteer_flag = if_else(volunteer == "Volunteer", 1, 0))
 ```
 
-## (5) Summarising data
+## 5. Summarising data
 
 Now we want to calculate the percentage of people who volunteered. The average of our new column of 1s and 0s is the proportion of volunteers.
 
@@ -213,7 +186,7 @@ hours_summary <- sgvp |>
   )
 ```
 
-## (6) Summarising by group
+## 6. Summarising by group
 
 `group_by()` splits the data into groups. Any `summarise()` that comes after it is calculated separately for each group, giving one row per group.
 
@@ -240,7 +213,7 @@ rate_by_age_gender <- sgvp_flag |>
   )
 ```
 
-## (7) Sorting
+## 7. Sorting
 
 `arrange()` sorts the rows by the values in a column, smallest to largest:
 
@@ -265,7 +238,7 @@ rate_by_gender_sorted <- rate_by_age_gender |>
 
 `arrange()` on a text column sorts alphabetically. It can't put education levels in a custom order like "Less than high school" first. For that we need factors (next section).
 
-## (8) Putting categories in order
+## 8. Putting categories in order
 
 Volunteering rate for each education level:
 
@@ -305,7 +278,7 @@ rate_by_education <- sgvp_education |>
   )
 ```
 
-## (9) Reshaping data
+## 9. Reshaping data
 
 `rate_by_age_gender` is in **long** format. To compare men and women, it is easier to have them side by side, in **wide** format.
 
@@ -322,7 +295,7 @@ rate_wide <- rate_by_age_gender |>
 
 `pivot_longer()` does the reverse: it gathers several columns into one.
 
-## (10) Joining data
+## 10. Joining data
 
 A join combines two datasets by matching rows on a column they share.
 

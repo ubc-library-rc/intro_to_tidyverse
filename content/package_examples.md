@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Tidyverse Packages and Additional Examples
-nav_order: 6
+title: Tidyverse Packages
+parent: Additional content
+nav_order: 1
 ---
 
-# Package functionalities and additional examples
+# Tidyverse Packages
 
-This page is an extra resource showing what some tidyverse packages can do, with more examples using the iris dataset that comes built into R. It is not part of the main workshop, but you can work through it on your own.
+The following contains additional examples of the tidyverse packages using the iris dataset that comes built into R.
 
 
 ## magrittr
