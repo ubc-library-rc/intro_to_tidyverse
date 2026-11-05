@@ -69,11 +69,11 @@ The tidyverse version of a data frame is called a **tibble**. You may see this w
 sgvp <- read_csv("sgvp_2023_workshop.csv")
 ```
 
-- The file name goes inside quotes. Because we set the working directory to the folder with our files, R knows where to find it. Alternatly, if you have not set a working directory you can specify the full file path. 
+- The file name goes inside quotes. Because we set the working directory to the folder with our files, R knows where to find it. Alternatively, if you have not set a working directory you can specify the full file path. 
 - `sgvp <-` saves the data as an object called `sgvp`, so we can use it in the rest of the workshop. You will see it appear in the Environment pane.
 
 {: .note }
-Not all data comes as a cav. Two other packages that can be used to load other data types are installed with tidyverse but will need to be loaded separately before you can use them:<br>
+Not all data comes as a csv. Two other packages that can be used to load other data types are installed with tidyverse but will need to be loaded separately before you can use them:<br>
 **readxl** reads Excel files: `library(readxl)` then `read_excel("file.xlsx")`<br>
 **haven** reads files from other statistics software: `library(haven)` then `read_sav("file.sav")` for SPSS, `read_dta("file.dta")` for Stata, or `read_sas("file.sas7bdat")` for SAS
 
