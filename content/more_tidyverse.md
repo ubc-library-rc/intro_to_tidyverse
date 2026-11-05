@@ -6,7 +6,7 @@ nav_order: 6
 
 # Optional More Tidyverse: going further
 
-These sections continue from [Working with Tidyverse]({{ site.baseurl }}{% link tidyverse_components.md %}). They use the same data and R script, and build on the `sgvp_flag` data frame we created in section 4.
+These sections continue from Working with Tidyverse. They use the same data and R script, and build on the `sgvp_flag` data frame we created in section 4.
 
 ## 6. Summarising by group
 
