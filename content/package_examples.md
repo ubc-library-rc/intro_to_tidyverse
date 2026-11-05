@@ -9,7 +9,6 @@ nav_order: 1
 
 The following contains additional examples of the tidyverse packages using the iris dataset that comes built into R.
 
-
 ## magrittr
 
 You will notice the `%>%` or `|>` symbol in a lot of tidyverse code. This is called a pipe operator, and it is used throughout the tidyverse to string many operations together. `%>%` comes from the [**magrittr** package](https://magrittr.tidyverse.org/){:target="_blank"}, and `|>` is built into R. For most purposes they work the same way.
